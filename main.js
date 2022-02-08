@@ -1,3 +1,6 @@
+// const moment = require("./moment")               // No idea where this came from.. did I write this??
+
+// const moment = require("./moment")
 
 const customer = customers[0]
 
@@ -8,12 +11,14 @@ for (let customer of customers) {
     
 // Create Variables to make placing into DOM easy
 let srcURL = customer.picture.large
-let name = customer.name.title + ' ' + customer.name.first + ' ' + customer.name.last
+let name =  capitalize(customer.name.first) + ' ' + capitalize(customer.name.last) 
 let email = customer.email
 let street = customer.location.street.number + ' ' + customer.location.street.name
-let cityStateZip = customer.location.city + ' ' + customer.location.state + ', ' + customer.location.postcode
-let dob = "DOB: " + "March 1, 1985"                       // Fill in later
-let customerDate = "Customer Since: " + "Feb 1, 2001"     // Fill in later
+
+
+let cityStateZip = customer.location.city + ' ' + nameToAbbr(customer.location.state) + ', ' + customer.location.postcode
+let dob = "DOB: " + moment(customer.dob.date).format("MMM DD, YYYY")
+let customerDate = "Customer Since: " + moment(customer.registered.date).format("MMM DD, YYYY")
 
 let customerCard = document.createElement("div")
 customersDiv.appendChild(customerCard)
@@ -62,4 +67,11 @@ let h4customerDate = document.createElement("h4")
 customerCard.appendChild(h4customerDate)
 h4customerDate.appendChild(customerDateText)
 
+}
+
+
+function capitalize(string) {
+    let firstLetter = string[0]
+    let slicedString = string.slice(1)
+    return firstLetter.toUpperCase() + slicedString
 }
