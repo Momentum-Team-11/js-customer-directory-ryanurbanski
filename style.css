@@ -3,7 +3,15 @@
 }
 
 .grid-container {
-    background-color: lightgreen;
+    background-color: lightcoral;
     display: grid;
     grid-template-columns: auto auto auto auto;
+    align-items: center;
+    grid-gap: 5px;
+}
+
+.customer-card {
+    background-color: lightcyan;
+    align-items: center;
+    text-align: center;
 }

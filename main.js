@@ -1,12 +1,11 @@
 
-
 const customer = customers[0]
 
 // Create div container for the 'customer card'
 let customersDiv = document.getElementById("customers")
 
-
-
+for (let customer of customers) {
+    
 // Create Variables to make placing into DOM easy
 let srcURL = customer.picture.large
 let name = customer.name.title + ' ' + customer.name.first + ' ' + customer.name.last
@@ -18,8 +17,10 @@ let customerDate = "Customer Since: " + "Feb 1, 2001"     // Fill in later
 
 let customerCard = document.createElement("div")
 customersDiv.appendChild(customerCard)
+customerCard.className = "customer-card"
 
 // Add Image
+
 customerCard.innerHTML += `
 <div>
     <img class='customer-img' src=${srcURL} />
@@ -34,6 +35,7 @@ customerCard.className = 'customer-card'
 let h2text = document.createTextNode(name)
 h2element.appendChild(h2text)
 
+// Define variables
 let emailText = document.createTextNode(email)
 let streetText = document.createTextNode(street)
 let cityStateZipText = document.createTextNode(cityStateZip)
@@ -60,3 +62,4 @@ let h4customerDate = document.createElement("h4")
 customerCard.appendChild(h4customerDate)
 h4customerDate.appendChild(customerDateText)
 
+}
