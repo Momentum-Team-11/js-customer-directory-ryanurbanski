@@ -1,3 +1,9 @@
 * {
     margin:0;
 }
+
+.grid-container {
+    background-color: lightgreen;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
